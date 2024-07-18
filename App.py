@@ -92,7 +92,7 @@ if line == "LINE A":
         highlight(ax, A2)
         highlight(ax, A3)
 
-        ax.legend(fontsize=6, bbox_to_anchor=(1.05, 1), loc='upper left')
+        ax.legend(fontsize=6, bbox_to_anchor=(1.05, 1), loc='bottom')
         st.pyplot(fig)
     
     except Exception as e:
