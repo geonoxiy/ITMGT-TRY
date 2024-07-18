@@ -78,9 +78,6 @@ if line == "LINE A":
         A3 = dfA.iloc[2, 1]
         
         def highlight(ax, last_item, next_item):
-            if last_item == next_item:
-                return  
-    
             if last_item == "Hagdan na Bato":
                 highlight_route(ax, "Hagdan na Bato", "Old Comm", line_coords["LINE A"])
             elif last_item == "Old Comm":
@@ -93,6 +90,16 @@ if line == "LINE A":
                 highlight_route(ax, "Leong Hall", "Xavier Hall", line_coords["LINE A"])
             elif last_item == "Xavier Hall":
                 highlight_route(ax, "Xavier Hall", "Hagdan na Bato", line_coords["LINE A"])
+# edit made
+        try:
+            for i in range(3):
+                last_item = dfA.iloc[i, 1]
+                next_item = dfA.iloc[i, 2]
+
+                if dfA.iloc[i, 2] == dfA.iloc[i, 1]:
+                    highlight(ax, last_item, last_item)
+                else:
+                    highlight(ax, last_item, next_item)
 
         highlight(ax, A1)
         highlight(ax, A2)
@@ -133,6 +140,17 @@ if line == "LINE B":
                 highlight_route(ax, "ISO", "Arete", line_coords["LINE B"])
             elif last_item == "Arete":
                 highlight_route(ax, "Arete", "Xavier Hall", line_coords["LINE B"])
+
+        # edit made
+        try:
+            for i in range(5:8):
+                last_item = dfA.iloc[i, 1]
+                next_item = dfA.iloc[i, 2]
+
+                if dfA.iloc[i, 2] == dfA.iloc[i, 1]:
+                    highlight(ax, last_item, last_item)
+                else:
+                    highlight(ax, last_item, next_item)
 
         highlight(ax, B1)
         highlight(ax, B2)
