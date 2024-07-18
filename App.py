@@ -139,9 +139,9 @@ if line == "LINE B":
         st.error(f"Error highlighting route: {e}")
     
     if dfA.iloc[5, 3] == "For Charging":
-        st.write('B1: This E-jeep is only until Gate 1.')
+        st.write('B1: This E-jeep is only until Xavier Hall.')
     if dfA.iloc[6, 3] == "For Charging":
-        st.write('B2: This E-jeep is only until Gate 1.')
+        st.write('B2: This E-jeep is only until Xavier Hall.')
     if dfA.iloc[7, 3] == "For Charging":
-        st.write('B3: This E-jeep is only until Gate 1.')
+        st.write('B3: This E-jeep is only until Xavier Hall.')
 
