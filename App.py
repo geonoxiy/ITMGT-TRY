@@ -17,7 +17,6 @@ st.set_page_config(
 
 line = st.selectbox(label="Select E-Jeep Line to view", options=["LINE A", "LINE B"])
 
-@st.cache_data
 def plot_map(title, cell_value, coords, place_coords, place_labels):
     fig, ax = plt.subplots(figsize=(4, 3))  
     icon_path = 'pin.png'
@@ -35,8 +34,7 @@ def plot_map(title, cell_value, coords, place_coords, place_labels):
     ax.axis('off')
 
     return fig, ax
-
-@st.cache_data
+    
 def highlight_route(ax, start, end, line_coords):
     start_index = line_coords["coords"].index(line_coords["place_coords"][line_coords["place_labels"].index(start)])
     end_index = line_coords["coords"].index(line_coords["place_coords"][line_coords["place_labels"].index(end)])
