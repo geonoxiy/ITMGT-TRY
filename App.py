@@ -76,9 +76,14 @@ if line == "LINE A":
         A1 = dfA.iloc[0, 1]
         A2 = dfA.iloc[1, 1]
         A3 = dfA.iloc[2, 1]
+        N1 = dfA.iloc[0, 2]
+        N1 = dfA.iloc[1, 2]
+        N1 = dfA.iloc[2, 2]
         
-        def highlight(ax, last_item):
-            if last_item == "Hagdan na Bato":
+        def highlight(ax, last_item, next_item):
+            if last_item == next_item:
+                highlight_route(ax, last_item, last_item, line_coords["LINE A"])
+            elif last_item == "Hagdan na Bato":
                 highlight_route(ax, "Hagdan na Bato", "Old Comm", line_coords["LINE A"])
             elif last_item == "Old Comm":
                 highlight_route(ax, "Old Comm", "Gate 1", line_coords["LINE A"])
@@ -91,9 +96,9 @@ if line == "LINE A":
             elif last_item == "Xavier Hall":
                 highlight_route(ax, "Xavier Hall", "Hagdan na Bato", line_coords["LINE A"])
 
-        highlight(ax, A1)
-        highlight(ax, A2)
-        highlight(ax, A3)
+        highlight(ax, A1, N1)
+        highlight(ax, A2, N2)
+        highlight(ax, A3, N3)
 
         ax.legend(fontsize=6, bbox_to_anchor=(1.05, 1), loc='upper left')
         st.pyplot(fig)
@@ -118,9 +123,14 @@ if line == "LINE B":
         B1 = dfA.iloc[5, 1]
         B2 = dfA.iloc[6, 1]
         B3 = dfA.iloc[7, 1]
+        M1 = dfA.iloc[5, 2]
+        M1 = dfA.iloc[6, 2]
+        M1 = dfA.iloc[7, 2]
         
         def highlight(ax, last_item):
-            if last_item == "Xavier Hall":
+            if last_item == next_item:
+                highlight_route(ax, last_item, last_item, line_coords["LINE B"])
+            elif last_item == "Xavier Hall":
                 highlight_route(ax, "Xavier Hall", "AJHS", line_coords["LINE B"])
             elif last_item == "AJHS":
                 highlight_route(ax, "AJHS", "ASHS FLC Building", line_coords["LINE B"])
