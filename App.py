@@ -18,7 +18,7 @@ st.set_page_config(
 line = st.selectbox(label="Select E-Jeep Line to view", options=["LINE A", "LINE B"])
 
 def plot_map(title, cell_value, coords, place_coords, place_labels):
-    fig, ax = plt.subplots(figsize=(4, 3))  
+    fig, ax = plt.subplots(figsize=(3, 2))  
     icon_path = 'pin.png'
     icon = plt.imread(icon_path)
 
@@ -30,7 +30,7 @@ def plot_map(title, cell_value, coords, place_coords, place_labels):
         ax.text(x + 0.1, y + 0.2, f' {label}', fontsize=8, verticalalignment='center_baseline', zorder=10)
 
     ax.plot(*zip(*coords), color='lightgray', label='Route')  
-    ax.set_title(title, fontsize=14, pad=20)
+    ax.set_title(title, fontsize=10, pad=20)
     ax.axis('off')
 
     return fig, ax
