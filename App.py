@@ -84,16 +84,46 @@ if line == "LINE A":
         }
         
         last_item = A1
-        if last_item in color_map:
-            highlight_route(ax, "Hagdan na Bato", last_item, line_coords["LINE A"], color_map[last_item])
+        if last_item == "Hagdan na Bato":
+            highlight_route(ax, "Hagdan na Bato", "Old Comm", line_coords["LINE A"], color_map["Hagdan na Bato"])
+        elif last_item == "Old Comm":
+            highlight_route(ax, "Old Comm", "Gate 1", line_coords["LINE A"], color_map["Old Comm"])
+        elif last_item == "Gate 1":
+            highlight_route(ax, "Gate 1", "Gate 2.5", line_coords["LINE A"], color_map["Gate 1"])
+        elif last_item == "Gate 2.5":
+            highlight_route(ax, "Gate 2.5", "Leong Hall", line_coords["LINE A"], color_map["Gate 2.5"])
+        elif last_item == "Leong Hall":
+            highlight_route(ax, "Leong Hall", "Xavier Hall", line_coords["LINE A"], color_map["Leong Hall"])
+        elif last_item == "Xavier Hall":
+            highlight_route(ax, "Xavier Hall", "Hagdan na Bato", line_coords["LINE A"], color_map["Xavier Hall"])
         
         last_item = A2
-        if last_item in color_map:
-            highlight_route(ax, "Old Comm", last_item, line_coords["LINE A"], color_map[last_item])
+        if last_item == "Hagdan na Bato":
+            highlight_route(ax, "Hagdan na Bato", "Old Comm", line_coords["LINE A"], color_map["Hagdan na Bato"])
+        elif last_item == "Old Comm":
+            highlight_route(ax, "Old Comm", "Gate 1", line_coords["LINE A"], color_map["Old Comm"])
+        elif last_item == "Gate 1":
+            highlight_route(ax, "Gate 1", "Gate 2.5", line_coords["LINE A"], color_map["Gate 1"])
+        elif last_item == "Gate 2.5":
+            highlight_route(ax, "Gate 2.5", "Leong Hall", line_coords["LINE A"], color_map["Gate 2.5"])
+        elif last_item == "Leong Hall":
+            highlight_route(ax, "Leong Hall", "Xavier Hall", line_coords["LINE A"], color_map["Leong Hall"])
+        elif last_item == "Xavier Hall":
+            highlight_route(ax, "Xavier Hall", "Hagdan na Bato", line_coords["LINE A"], color_map["Xavier Hall"])
         
         last_item = A3
-        if last_item in color_map:
-            highlight_route(ax, "Gate 1", last_item, line_coords["LINE A"], color_map[last_item])
+        if last_item == "Hagdan na Bato":
+            highlight_route(ax, "Hagdan na Bato", "Old Comm", line_coords["LINE A"], color_map["Hagdan na Bato"])
+        elif last_item == "Old Comm":
+            highlight_route(ax, "Old Comm", "Gate 1", line_coords["LINE A"], color_map["Old Comm"])
+        elif last_item == "Gate 1":
+            highlight_route(ax, "Gate 1", "Gate 2.5", line_coords["LINE A"], color_map["Gate 1"])
+        elif last_item == "Gate 2.5":
+            highlight_route(ax, "Gate 2.5", "Leong Hall", line_coords["LINE A"], color_map["Gate 2.5"])
+        elif last_item == "Leong Hall":
+            highlight_route(ax, "Leong Hall", "Xavier Hall", line_coords["LINE A"], color_map["Leong Hall"])
+        elif last_item == "Xavier Hall":
+            highlight_route(ax, "Xavier Hall", "Hagdan na Bato", line_coords["LINE A"], color_map["Xavier Hall"])
         
         st.pyplot(fig)
     except Exception as e:
