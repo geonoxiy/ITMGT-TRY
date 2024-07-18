@@ -132,7 +132,9 @@ if line == "LINE B":
         highlight(ax, B2)
         highlight(ax, B3)
         
+        ax.legend(fontsize=6, bbox_to_anchor=(1.05, 1), loc='upper left')
         st.pyplot(fig)
+        
     except Exception as e:
         st.error(f"Error highlighting route: {e}")
     
