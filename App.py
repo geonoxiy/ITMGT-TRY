@@ -132,3 +132,8 @@ if line == "LINE A":
         elif last_item == "Xavier Hall":
             highlight_route(ax, "Xavier Hall", "Hagdan na Bato", line_coords["LINE A"])
         st.pyplot(fig)
+
+    except Exception as e:
+            st.error(f"Error highlighting route: {e}")
+        if dfA.iloc[7, 3] == "For Charging":
+            st.write('This E-jeep is only until Gate 1.')
