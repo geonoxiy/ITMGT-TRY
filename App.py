@@ -68,6 +68,7 @@ line_coords = {
 
 if line == "LINE A":
     st.title("Line A")
+    st.write("If an E-jeep is marked For Charging, its final stop will be at Gate 1. The E-jeep will continue to make all stops up to Gate 1, as indicated on the map below.")
     st.write(dfA.head(3))
     
     # Plot A1, A2, A3 on one map
@@ -115,6 +116,7 @@ if line == "LINE A":
 
 if line == "LINE B":
     st.title("Line B")
+    st.write("If an E-jeep is marked For Charging, its final stop will be at Xavier Hall. The E-jeep will continue to make all stops up to Xavier Hall, as indicated on the map below.")
     st.write(dfA.iloc[5:8])
     
     # Plot B1, B2, B3 on one map
