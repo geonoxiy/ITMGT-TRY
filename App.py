@@ -11,7 +11,7 @@ st.set_page_config(
 )
 
 # Cache the data loading function to avoid reloading data on each interaction
-@st.cache(ttl=60)
+@st.cache
 def load_data(sheet_id):
     return pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv")
 
@@ -144,4 +144,7 @@ if line == "LINE B":
         st.write('B2: This E-jeep is only until Xavier Hall.')
     if dfA.iloc[7, 3] == "For Charging":
         st.write('B3: This E-jeep is only until Xavier Hall.')
+
+time.sleep(60 * 1) 
+st.experimental_rerun()
 
