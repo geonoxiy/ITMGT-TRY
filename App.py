@@ -22,7 +22,7 @@ line = st.selectbox(label="Select E-Jeep Line to view", options=["LINE A", "LINE
 
 def plot_map(title, cell_value, coords, place_coords, place_labels):
     fig, ax = plt.subplots(figsize=(6, 4))  # Adjust the width and height to make the figures smaller
-    icon_path = 'https://cdn-icons-png.freepik.com/256/149/149059.png?semt=ais_hybrid'
+    icon_path = 'pin.png'
     icon = plt.imread(icon_path)
     # Add icons and labels to the map
     for (x, y), label in zip(place_coords, place_labels):
