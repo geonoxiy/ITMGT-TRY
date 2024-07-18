@@ -18,7 +18,8 @@ def load_data(sheet_id):
 sheet_idA = '16CwByzI3-J0o36W7vs4hZ1Ovmyc2uV0DhJH4Cj96rU8'
 dfA = load_data(sheet_idA)
 
-line = st.selectbox(label="Select E-Jeep Line to view", options=["LINE A", "LINE B"])
+st.title("Select an E-Jeep Line")
+line = st.selectbox(options=["LINE A", "LINE B"])
 
 def plot_map(title, coords, place_coords, place_labels):
     fig, ax = plt.subplots(figsize=(6, 4))  # Adjust the width and height to make the figures smaller
