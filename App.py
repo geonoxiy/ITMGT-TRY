@@ -29,7 +29,7 @@ def plot_map(title, coords, place_coords, place_labels):
         im = OffsetImage(icon, zoom=0.005)
         ab = AnnotationBbox(im, (x, y), xycoords='data', frameon=False)
         ax.add_artist(ab)
-        ax.text(x + 0.1, y + 0.2, f' {label}', fontsize=6, verticalalignment='center_baseline', zorder=10)
+        ax.text(x + 0.1, y + 0.25, f' {label}', fontsize=6, verticalalignment='center_baseline', zorder=10)
     ax.plot(*zip(*coords), color='lightgray', label='Route')  
     ax.set_title(title, fontsize=10, pad=20)
     ax.axis('off')
