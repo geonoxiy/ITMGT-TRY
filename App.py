@@ -103,4 +103,42 @@ if line == "LINE A":
         st.write('A2: This E-jeep is only until Gate 1.')
     if dfA.iloc[2, 3] == "For Charging":
         st.write('A3: This E-jeep is only until Gate 1.')
+
+if line == "LINE B":
+    st.title("Line B")
+    st.write(dfA.iloc[5:8])
+    
+    # Plot B1, B2, B3 on one map
+    fig, ax = plot_map("Line B Routes", line_coords["LINE B"]["coords"], line_coords["LINE B"]["place_coords"], line_coords["LINE B"]["place_labels"])
+    try:
+        B1 = dfA.iloc[5, 1]
+        B2 = dfA.iloc[6, 1]
+        B3 = dfA.iloc[7, 1]
+        
+        def highlight(ax, last_item):
+            if last_item == "Xavier Hall":
+                highlight_route(ax, "Xavier Hall", "AJHS", line_coords["LINE B"])
+            elif last_item == "AJHS":
+                highlight_route(ax, "AJHS", "ASHS FLC Building", line_coords["LINE B"])
+            elif last_item == "ASHS FLC Building":
+                highlight_route(ax, "ASHS FLC Building", "ISO", line_coords["LINE B"])
+            elif last_item == "ISO":
+                highlight_route(ax, "ISO", "Arete", line_coords["LINE B"])
+            elif last_item == "Arete":
+                highlight_route(ax, "Arete", "Xavier Hall", line_coords["LINE B"])
+
+        highlight(ax, B1)
+        highlight(ax, B2)
+        highlight(ax, B3)
+        
+        st.pyplot(fig)
+    except Exception as e:
+        st.error(f"Error highlighting route: {e}")
+    
+    if dfA.iloc[5, 3] == "For Charging":
+        st.write('B1: This E-jeep is only until Gate 1.')
+    if dfA.iloc[6, 3] == "For Charging":
+        st.write('B2: This E-jeep is only until Gate 1.')
+    if dfA.iloc[7, 3] == "For Charging":
+        st.write('B3: This E-jeep is only until Gate 1.')
         
