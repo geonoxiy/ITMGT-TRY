@@ -18,18 +18,10 @@ def load_data(sheet_id):
 sheet_idA = '16CwByzI3-J0o36W7vs4hZ1Ovmyc2uV0DhJH4Cj96rU8'
 dfA = load_data(sheet_idA)
 
-# Function to clear cache
-def clear_cache():
-    st.cache_data()
-
-# Button to clear cache
-if st.button("Clear Cache"):
-    clear_cache()
-
 line = st.selectbox(label="Select E-Jeep Line to view", options=["LINE A", "LINE B"])
 
 def plot_map(title, cell_value, coords, place_coords, place_labels):
-    fig, ax = plt.subplots(figsize=(10, 6))  # Adjust the width and height as needed
+    fig, ax = plt.subplots(figsize=(6, 4))  # Adjust the width and height to make the figures smaller
     icon_path = 'pin.png'
     icon = plt.imread(icon_path)
     # Add icons and labels to the map
