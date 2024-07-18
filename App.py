@@ -20,7 +20,7 @@ dfA = load_data(sheet_idA)
 
 # Function to clear cache
 def clear_cache():
-    st.experimental_memo.clear()
+    st.cache_data()
 
 # Button to clear cache
 if st.button("Clear Cache"):
