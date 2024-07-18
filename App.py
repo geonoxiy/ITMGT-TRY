@@ -18,6 +18,14 @@ def load_data(sheet_id):
 sheet_idA = '16CwByzI3-J0o36W7vs4hZ1Ovmyc2uV0DhJH4Cj96rU8'
 dfA = load_data(sheet_idA)
 
+# Function to clear cache
+def clear_cache():
+    st.experimental_memo.clear()
+
+# Button to clear cache
+if st.button("Clear Cache"):
+    clear_cache()
+
 line = st.selectbox(label="Select E-Jeep Line to view", options=["LINE A", "LINE B"])
 
 def plot_map(title, cell_value, coords, place_coords, place_labels):
