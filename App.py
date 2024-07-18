@@ -5,6 +5,11 @@ import matplotlib
 from matplotlib import pyplot as plt
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 
+st.set_page_config(
+    page_title="A-Hatid!",
+    page_icon="https://cdn-icons-png.freepik.com/512/6984/6984901.png"
+)
+
 # Cache the data loading function to avoid reloading data on each interaction
 @st.cache_resource
 def load_data(sheet_id):
@@ -12,11 +17,6 @@ def load_data(sheet_id):
 
 sheet_idA = '16CwByzI3-J0o36W7vs4hZ1Ovmyc2uV0DhJH4Cj96rU8'
 dfA = load_data(sheet_idA)
-
-st.set_page_config(
-    page_title="A-Hatid!",
-    page_icon="https://cdn-icons-png.freepik.com/512/6984/6984901.png"
-)
 
 line = st.selectbox(label="Select E-Jeep Line to view", options=["LINE A", "LINE B"])
 
