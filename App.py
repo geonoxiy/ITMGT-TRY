@@ -29,9 +29,9 @@ def plot_map(title, cell_value, coords, place_coords, place_labels):
         im = OffsetImage(icon, zoom=0.005)
         ab = AnnotationBbox(im, (x, y), xycoords='data', frameon=False)
         ax.add_artist(ab)
-        ax.text(x + 0.1, y + 0.2, f' {label}', fontsize=8, verticalalignment='center_baseline', zorder=10)
+        ax.text(x + 0.1, y + 0.2, f' {label}', fontsize=6, verticalalignment='center_baseline', zorder=10)
     ax.plot(*zip(*coords), color='lightgray', label='Route')  
-    ax.set_title(title, fontsize=14, pad=20)
+    ax.set_title(title, fontsize=10, pad=20)
     ax.axis('off')
     return fig, ax
 
@@ -47,8 +47,8 @@ def highlight_route(ax, start, end, line_coords):
         highlighted_y = [line_coords["coords"][i][1] for i in range(start_index, len(line_coords["coords"]))]
         highlighted_y += [line_coords["coords"][i][1] for i in range(0, end_index + 1)]
     
-    ax.plot(highlighted_x, highlighted_y, color='#0305C6', linewidth=2, label=f'Route {start} to {end}')
-    ax.legend()
+    ax.plot(highlighted_x, highlighted_y, color='#0305C6', linewidth=1, label=f'Route {start} to {end}')
+    ax.legend(fontsize=6)
 
 line_coords = {
     "LINE A": {
