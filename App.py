@@ -20,7 +20,7 @@ dfA = load_data(sheet_idA)
 
 line = st.selectbox(label="Select E-Jeep Line to view", options=["LINE A", "LINE B"])
 
-def plot_map(title, cell_value, coords, place_coords, place_labels):
+def plot_map(title, coords, place_coords, place_labels):
     fig, ax = plt.subplots(figsize=(6, 4))  # Adjust the width and height to make the figures smaller
     icon_path = 'pin.png'
     icon = plt.imread(icon_path)
@@ -66,9 +66,13 @@ line_coords = {
 if line == "LINE A":
     st.title("Line A")
     st.write(dfA.head(3))
-    
+
+    A1 = dfA.iloc[0, 1]
+    A2 = dfA.iloc[1, 1]
+    A3 = dfA.iloc[2, 1]
+
     # Plot A1, A2, A3 on one map with different colors
-    fig, ax = plot_map("Line A Routes", {A1, A2, A3}, line_coords["LINE A"]["coords"], line_coords["LINE A"]["place_coords"], line_coords["LINE A"]["place_labels"])
+    fig, ax = plot_map("Line A Routes", line_coords["LINE A"]["coords"], line_coords["LINE A"]["place_coords"], line_coords["LINE A"]["place_labels"])
     try:
         A1 = dfA.iloc[0, 1]
         A2 = dfA.iloc[1, 1]
