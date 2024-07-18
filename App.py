@@ -20,7 +20,7 @@ dfA = load_data(sheet_idA)
 
 line = st.selectbox(label="Select E-Jeep Line to view", options=["LINE A", "LINE B"])
 
-def plot_map(title, cell_value, coords, place_coords, place_labels):
+def plot_map(title, cell_value, coords, place_coords):
     fig, ax = plt.subplots(figsize=(6, 4))  # Adjust the width and height to make the figures smaller
     icon_path = 'pin.png'
     icon = plt.imread(icon_path)
