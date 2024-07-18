@@ -1,6 +1,8 @@
 import pandas as pd
 import streamlit as st
 import time
+import datetime
+import pytz
 import matplotlib
 from matplotlib import pyplot as plt
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
@@ -145,4 +147,7 @@ if line == "LINE B":
     if dfA.iloc[7, 3] == "For Charging":
         st.write('B3: This E-jeep is only until Xavier Hall.')
 
-st.write("Last updated:", time.strftime("%Y-%m-%d %H:%M:%S"))
+local_tz = pytz.timezone('Asia/Manila')
+local_time = datetime.datetime.now(local_tz)
+
+st.write("Last updated:", local_time.strftime("%Y-%m-%d %H:%M:%S"))
