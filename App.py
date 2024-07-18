@@ -41,9 +41,6 @@ def highlight_route(ax, start, end, line_coords):
     start_index = line_coords["coords"].index(line_coords["place_coords"][line_coords["place_labels"].index(start)])
     end_index = line_coords["coords"].index(line_coords["place_coords"][line_coords["place_labels"].index(end)])
 
-    if start_index == end_index:
-        return
-        
     if start_index < end_index:
         highlighted_x = [line_coords["coords"][i][0] for i in range(start_index, end_index + 1)]
         highlighted_y = [line_coords["coords"][i][1] for i in range(start_index, end_index + 1)]
@@ -80,7 +77,10 @@ if line == "LINE A":
         A2 = dfA.iloc[1, 1]
         A3 = dfA.iloc[2, 1]
         
-        def highlight(ax, last_item):
+        def highlight(ax, last_item, next_item):
+            if last_item == next_item:
+                return  
+    
             if last_item == "Hagdan na Bato":
                 highlight_route(ax, "Hagdan na Bato", "Old Comm", line_coords["LINE A"])
             elif last_item == "Old Comm":
@@ -90,7 +90,7 @@ if line == "LINE A":
             elif last_item == "Gate 2.5":
                 highlight_route(ax, "Gate 2.5", "Leong Hall", line_coords["LINE A"])
             elif last_item == "Leong Hall":
-                highlight_route(ax, "Leong Hall", "Xavier Hall", line_coords["LINE A"])
+        highlight_route(ax, "Leong Hall", "Xavier Hall", line_coords["LINE A"])
             elif last_item == "Xavier Hall":
                 highlight_route(ax, "Xavier Hall", "Hagdan na Bato", line_coords["LINE A"])
 
