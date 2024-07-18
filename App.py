@@ -90,6 +90,9 @@ if line == "LINE A":
                 highlight_route(ax, "Leong Hall", "Xavier Hall", line_coords["LINE A"])
             elif last_item == "Xavier Hall":
                 highlight_route(ax, "Xavier Hall", "Hagdan na Bato", line_coords["LINE A"])
+
+    except Exception as e:
+        st.error(f"Error highlighting route: {e}")
 # edit made
     try:
         for i in range(3):
@@ -155,6 +158,9 @@ if line == "LINE A":
                 highlight_route(ax, "Leong Hall", "Xavier Hall", line_coords["LINE A"])
             elif last_item == "Xavier Hall":
                 highlight_route(ax, "Xavier Hall", "Hagdan na Bato", line_coords["LINE A"])
+
+    except Exception as e:
+        st.error(f"Error highlighting route: {e}")
 # edit made
     try:
         for i in range(3):
