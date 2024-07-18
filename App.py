@@ -11,7 +11,7 @@ st.set_page_config(
 )
 
 # Cache the data loading function to avoid reloading data on each interaction
-@st.cache(ttl=120)
+@st.cache_data(ttl=60)
 def load_data(sheet_id):
     return pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv")
 
