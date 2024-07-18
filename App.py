@@ -104,8 +104,8 @@ if line == "LINE A":
         ax.legend(fontsize=6, bbox_to_anchor=(1.05, 1), loc='upper left')
         st.pyplot(fig)
     
-    except Exception as e:
-        st.error(f"Error highlighting route: {e}")
+        except Exception as e:
+            st.error(f"Error highlighting route: {e}")
     
     if dfA.iloc[0, 3] == "For Charging":
         st.write('A1: This E-jeep is only until Gate 1.')
@@ -151,8 +151,8 @@ if line == "LINE B":
         ax.legend(fontsize=6, bbox_to_anchor=(0, 1), loc='upper left')
         st.pyplot(fig)
         
-    except Exception as e:
-        st.error(f"Error highlighting route: {e}")
+        except Exception as e:
+            st.error(f"Error highlighting route: {e}")
     
     if dfA.iloc[5, 3] == "For Charging":
         st.write('B1: This E-jeep is only until Xavier Hall.')
