@@ -101,10 +101,6 @@ if line == "LINE A":
                 else:
                     highlight(ax, last_item, next_item)
 
-        highlight(ax, A1)
-        highlight(ax, A2)
-        highlight(ax, A3)
-
         ax.legend(fontsize=6, bbox_to_anchor=(1.05, 1), loc='upper left')
         st.pyplot(fig)
     
@@ -151,10 +147,6 @@ if line == "LINE B":
                     highlight(ax, last_item, last_item)
                 else:
                     highlight(ax, last_item, next_item)
-
-        highlight(ax, B1)
-        highlight(ax, B2)
-        highlight(ax, B3)
         
         ax.legend(fontsize=6, bbox_to_anchor=(0, 1), loc='upper left')
         st.pyplot(fig)
