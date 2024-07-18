@@ -124,8 +124,8 @@ if line == "LINE B":
         B2 = dfA.iloc[6, 1]
         B3 = dfA.iloc[7, 1]
         M1 = dfA.iloc[5, 2]
-        M1 = dfA.iloc[6, 2]
-        M1 = dfA.iloc[7, 2]
+        M2 = dfA.iloc[6, 2]
+        M3 = dfA.iloc[7, 2]
         
         def highlight(ax, last_item, next_item):
             if last_item == next_item:
