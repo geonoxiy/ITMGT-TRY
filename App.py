@@ -91,28 +91,21 @@ if line == "LINE A":
             elif last_item == "Xavier Hall":
                 highlight_route(ax, "Xavier Hall", "Hagdan na Bato", line_coords["LINE A"])
 # edit made
-        try:
-            for i in range(3):
-                last_item = dfA.iloc[i, 1]
-                next_item = dfA.iloc[i, 2]
+    try:
+        for i in range(3):
+            last_item = dfA.iloc[i, 1]
+            next_item = dfA.iloc[i, 2]
 
-                if dfA.iloc[i, 2] == dfA.iloc[i, 1]:
-                    highlight(ax, last_item, last_item)
-                else:
-                    highlight(ax, last_item, next_item)
+            if dfA.iloc[i, 2] == dfA.iloc[i, 1]:
+                highlight(ax, last_item, last_item)
+            else:
+                highlight(ax, last_item, next_item)
 
-            ax.legend(fontsize=6, bbox_to_anchor=(1.05, 1), loc='upper left')
-            st.pyplot(fig)
+        ax.legend(fontsize=6, bbox_to_anchor=(1.05, 1), loc='upper left')
+        st.pyplot(fig)
     
-        except Exception as e:
-            st.error(f"Error highlighting route: {e}")
-    
-    if dfA.iloc[0, 3] == "For Charging":
-        st.write('A1: This E-jeep is only until Gate 1.')
-    if dfA.iloc[1, 3] == "For Charging":
-        st.write('A2: This E-jeep is only until Gate 1.')
-    if dfA.iloc[2, 3] == "For Charging":
-        st.write('A3: This E-jeep is only until Gate 1.')
+    except Exception as e:
+        st.error(f"Error highlighting route: {e}")
 
 if line == "LINE B":
     st.title("Line B")
@@ -138,21 +131,46 @@ if line == "LINE B":
                 highlight_route(ax, "Arete", "Xavier Hall", line_coords["LINE B"])
 
         # edit made
-        try:
-            for i in range(5:8):
-                last_item = dfA.iloc[i, 1]
-                next_item = dfA.iloc[i, 2]
+if line == "LINE A":
+    st.title("Line A")
+    st.write(dfA.head(3))
+    
+    # Plot A1, A2, A3 on one map
+    fig, ax = plot_map("Line A Routes", line_coords["LINE A"]["coords"], line_coords["LINE A"]["place_coords"], line_coords["LINE A"]["place_labels"])
+    try:
+        A1 = dfA.iloc[0, 1]
+        A2 = dfA.iloc[1, 1]
+        A3 = dfA.iloc[2, 1]
+        
+        def highlight(ax, last_item, next_item):
+            if last_item == "Hagdan na Bato":
+                highlight_route(ax, "Hagdan na Bato", "Old Comm", line_coords["LINE A"])
+            elif last_item == "Old Comm":
+                highlight_route(ax, "Old Comm", "Gate 1", line_coords["LINE A"])
+            elif last_item == "Gate 1":
+                highlight_route(ax, "Gate 1", "Gate 2.5", line_coords["LINE A"])
+            elif last_item == "Gate 2.5":
+                highlight_route(ax, "Gate 2.5", "Leong Hall", line_coords["LINE A"])
+            elif last_item == "Leong Hall":
+                highlight_route(ax, "Leong Hall", "Xavier Hall", line_coords["LINE A"])
+            elif last_item == "Xavier Hall":
+                highlight_route(ax, "Xavier Hall", "Hagdan na Bato", line_coords["LINE A"])
+# edit made
+    try:
+        for i in range(3):
+            last_item = dfA.iloc[i, 1]
+            next_item = dfA.iloc[i, 2]
 
-                if dfA.iloc[i, 2] == dfA.iloc[i, 1]:
-                    highlight(ax, last_item, last_item)
-                else:
-                    highlight(ax, last_item, next_item)
-        
-            ax.legend(fontsize=6, bbox_to_anchor=(0, 1), loc='upper left')
-            st.pyplot(fig)
-        
-        except Exception as e:
-            st.error(f"Error highlighting route: {e}")
+            if dfA.iloc[i, 2] == dfA.iloc[i, 1]:
+                highlight(ax, last_item, last_item)
+            else:
+                highlight(ax, last_item, next_item)
+
+        ax.legend(fontsize=6, bbox_to_anchor=(1.05, 1), loc='upper left')
+        st.pyplot(fig)
+    
+    except Exception as e:
+        st.error(f"Error highlighting route: {e}")
     
     if dfA.iloc[5, 3] == "For Charging":
         st.write('B1: This E-jeep is only until Xavier Hall.')
