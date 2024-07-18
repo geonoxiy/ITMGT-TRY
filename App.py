@@ -101,8 +101,8 @@ if line == "LINE A":
                 else:
                     highlight(ax, last_item, next_item)
 
-        ax.legend(fontsize=6, bbox_to_anchor=(1.05, 1), loc='upper left')
-        st.pyplot(fig)
+            ax.legend(fontsize=6, bbox_to_anchor=(1.05, 1), loc='upper left')
+            st.pyplot(fig)
     
         except Exception as e:
             st.error(f"Error highlighting route: {e}")
@@ -148,8 +148,8 @@ if line == "LINE B":
                 else:
                     highlight(ax, last_item, next_item)
         
-        ax.legend(fontsize=6, bbox_to_anchor=(0, 1), loc='upper left')
-        st.pyplot(fig)
+            ax.legend(fontsize=6, bbox_to_anchor=(0, 1), loc='upper left')
+            st.pyplot(fig)
         
         except Exception as e:
             st.error(f"Error highlighting route: {e}")
