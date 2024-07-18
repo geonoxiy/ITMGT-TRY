@@ -107,11 +107,11 @@ if line == "LINE A":
         st.error(f"Error highlighting route: {e}")
     
     if dfA.iloc[0, 3] == "For Charging":
-        st.write('A1: This E-jeep is only until Gate 1.')
+        st.write('A1: This E-jeep is only until Gate 1. This will still pass through stops before Gate 1.')
     if dfA.iloc[1, 3] == "For Charging":
-        st.write('A2: This E-jeep is only until Gate 1.')
+        st.write('A2: This E-jeep is only until Gate 1. This will still pass through stops before Gate 1.')
     if dfA.iloc[2, 3] == "For Charging":
-        st.write('A3: This E-jeep is only until Gate 1.')
+        st.write('A3: This E-jeep is only until Gate 1. This will still pass through stops before Gate 1.')
 
 if line == "LINE B":
     st.title("Line B")
