@@ -145,3 +145,5 @@ if line == "LINE B":
     if dfA.iloc[7, 3] == "For Charging":
         st.write('B3: This E-jeep is only until Gate 1.')
         
+time.sleep(60 * 1) 
+st.experimental_rerun()
