@@ -66,70 +66,34 @@ line_coords = {
 if line == "LINE A":
     st.title("Line A")
     st.write(dfA.head(3))
-
-    A1 = dfA.iloc[0, 1]
-    A2 = dfA.iloc[1, 1]
-    A3 = dfA.iloc[2, 1]
-
-    # Plot A1, A2, A3 on one map with different colors
+    
+    # Plot A1, A2, A3 on one map
     fig, ax = plot_map("Line A Routes", line_coords["LINE A"]["coords"], line_coords["LINE A"]["place_coords"], line_coords["LINE A"]["place_labels"])
     try:
         A1 = dfA.iloc[0, 1]
         A2 = dfA.iloc[1, 1]
         A3 = dfA.iloc[2, 1]
         
-        color_map = {
-            "Hagdan na Bato": "red",
-            "Old Comm": "blue",
-            "Gate 1": "green",
-            "Gate 2.5": "purple",
-            "Leong Hall": "orange",
-            "Xavier Hall": "cyan"
-        }
-        
-        last_item = A1
-        if last_item == "Hagdan na Bato":
-            highlight_route(ax, "Hagdan na Bato", "Old Comm", line_coords["LINE A"])
-        elif last_item == "Old Comm":
-            highlight_route(ax, "Old Comm", "Gate 1", line_coords["LINE A"])
-        elif last_item == "Gate 1":
-            highlight_route(ax, "Gate 1", "Gate 2.5", line_coords["LINE A"])
-        elif last_item == "Gate 2.5":
-            highlight_route(ax, "Gate 2.5", "Leong Hall", line_coords["LINE A"])
-        elif last_item == "Leong Hall":
-            highlight_route(ax, "Leong Hall", "Xavier Hall", line_coords["LINE A"])
-        elif last_item == "Xavier Hall":
-            highlight_route(ax, "Xavier Hall", "Hagdan na Bato", line_coords["LINE A"])
-        
-        last_item = A2
-        if last_item == "Hagdan na Bato":
-            highlight_route(ax, "Hagdan na Bato", "Old Comm", line_coords["LINE A"])
-        elif last_item == "Old Comm":
-            highlight_route(ax, "Old Comm", "Gate 1", line_coords["LINE A"])
-        elif last_item == "Gate 1":
-            highlight_route(ax, "Gate 1", "Gate 2.5", line_coords["LINE A"])
-        elif last_item == "Gate 2.5":
-            highlight_route(ax, "Gate 2.5", "Leong Hall", line_coords["LINE A"])
-        elif last_item == "Leong Hall":
-            highlight_route(ax, "Leong Hall", "Xavier Hall", line_coords["LINE A"])
-        elif last_item == "Xavier Hall":
-            highlight_route(ax, "Xavier Hall", "Hagdan na Bato", line_coords["LINE A"])
-        
-        last_item = A3
-        if last_item == "Hagdan na Bato":
-            highlight_route(ax, "Hagdan na Bato", "Old Comm", line_coords["LINE A"])
-        elif last_item == "Old Comm":
-            highlight_route(ax, "Old Comm", "Gate 1", line_coords["LINE A"])
-        elif last_item == "Gate 1":
-            highlight_route(ax, "Gate 1", "Gate 2.5", line_coords["LINE A"])
-        elif last_item == "Gate 2.5":
-            highlight_route(ax, "Gate 2.5", "Leong Hall", line_coords["LINE A"])
-        elif last_item == "Leong Hall":
-            highlight_route(ax, "Leong Hall", "Xavier Hall", line_coords["LINE A"])
-        elif last_item == "Xavier Hall":
-            highlight_route(ax, "Xavier Hall", "Hagdan na Bato", line_coords["LINE A"])
+        def highlight(ax, last_item):
+            if last_item == "Hagdan na Bato":
+                highlight_route(ax, "Hagdan na Bato", "Old Comm", line_coords["LINE A"])
+            elif last_item == "Old Comm":
+                highlight_route(ax, "Old Comm", "Gate 1", line_coords["LINE A"])
+            elif last_item == "Gate 1":
+                highlight_route(ax, "Gate 1", "Gate 2.5", line_coords["LINE A"])
+            elif last_item == "Gate 2.5":
+                highlight_route(ax, "Gate 2.5", "Leong Hall", line_coords["LINE A"])
+            elif last_item == "Leong Hall":
+                highlight_route(ax, "Leong Hall", "Xavier Hall", line_coords["LINE A"])
+            elif last_item == "Xavier Hall":
+                highlight_route(ax, "Xavier Hall", "Hagdan na Bato", line_coords["LINE A"])
+
+        highlight(ax, A1)
+        highlight(ax, A2)
+        highlight(ax, A3)
         
         st.pyplot(fig)
+    
     except Exception as e:
         st.error(f"Error highlighting route: {e}")
     
