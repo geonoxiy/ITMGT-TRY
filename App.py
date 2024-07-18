@@ -134,6 +134,6 @@ if line == "LINE A":
         st.pyplot(fig)
 
     except Exception as e:
-            st.error(f"Error highlighting route: {e}")
-        if dfA.iloc[7, 3] == "For Charging":
-            st.write('This E-jeep is only until Gate 1.')
+        st.error(f"Error highlighting route: {e}")
+    if dfA.iloc[7, 3] == "For Charging":
+        st.write('This E-jeep is only until Gate 1.')
