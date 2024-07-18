@@ -127,7 +127,7 @@ if line == "LINE B":
         M1 = dfA.iloc[6, 2]
         M1 = dfA.iloc[7, 2]
         
-        def highlight(ax, last_item):
+        def highlight(ax, last_item, next_item):
             if last_item == next_item:
                 highlight_route(ax, last_item, last_item, line_coords["LINE B"])
             elif last_item == "Xavier Hall":
