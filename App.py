@@ -40,7 +40,11 @@ def plot_map(title, coords, place_coords, place_labels):
 def highlight_route(ax, start, end, line_coords):
     start_index = line_coords["coords"].index(line_coords["place_coords"][line_coords["place_labels"].index(start)])
     end_index = line_coords["coords"].index(line_coords["place_coords"][line_coords["place_labels"].index(end)])
-    if start_index <= end_index:
+
+    if start_index == end_index:
+        return
+        
+    if start_index < end_index:
         highlighted_x = [line_coords["coords"][i][0] for i in range(start_index, end_index + 1)]
         highlighted_y = [line_coords["coords"][i][1] for i in range(start_index, end_index + 1)]
     else:
