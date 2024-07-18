@@ -68,7 +68,7 @@ if line == "LINE A":
     st.write(dfA.head(3))
     
     # Plot A1, A2, A3 on one map with different colors
-    fig, ax = plot_map("Line A Routes", A, line_coords["LINE A"]["coords"], line_coords["LINE A"]["place_coords"], line_coords["LINE A"]["place_labels"])
+    fig, ax = plot_map("Line A Routes", {A1, A2, A3}, line_coords["LINE A"]["coords"], line_coords["LINE A"]["place_coords"], line_coords["LINE A"]["place_labels"])
     try:
         A1 = dfA.iloc[0, 1]
         A2 = dfA.iloc[1, 1]
