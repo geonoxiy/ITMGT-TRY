@@ -142,9 +142,9 @@ if line == "LINE B":
             elif last_item == "Arete":
                 highlight_route(ax, "Arete", "Xavier Hall", line_coords["LINE B"], color)
 
-        highlight(ax, B1, M1, "purple")
-        highlight(ax, B2, M2, "orange")
-        highlight(ax, B3, M3, "cyan")
+        highlight(ax, B1, M1, "red")
+        highlight(ax, B2, M2, "blue")
+        highlight(ax, B3, M3, "orange")
 
         ax.legend(fontsize=6, bbox_to_anchor=(1.05, 1), loc='upper left')
         st.pyplot(fig)
