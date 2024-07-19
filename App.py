@@ -4,6 +4,7 @@ import datetime
 import pytz
 import matplotlib.pyplot as plt
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
+import time
 
 st.set_page_config(
     page_title="A-Hatid!",
@@ -31,7 +32,18 @@ def plot_map(title, coords, place_coords, place_labels):
         ax.add_artist(ab)
         ax.text(x + 0.1, y + 0.25, f' {label}', fontsize=6, verticalalignment='center_baseline', zorder=10)
     
-    ax.plot(*zip(*coords), color='lightgray', label='Route')  
+    ax.plot(*zip(*coords), color='lightgray', label='Route')
+
+    # Adding ">" marks to indicate direction
+    for i in range(len(coords) - 1):
+        x_start, y_start = coords[i]
+        x_end, y_end = coords[i + 1]
+        midpoint = ((x_start + x_end) / 2, (y_start + y_end) / 2)
+        dx = x_end - x_start
+        dy = y_end - y_start
+        rotation = np.degrees(np.arctan2(dy, dx))
+        ax.text(midpoint[0], midpoint[1], ">", fontsize=8, rotation=rotation, ha='center', va='center', color='black')
+
     ax.set_title(title, fontsize=10, pad=20)
     ax.axis('off')
     return fig, ax
