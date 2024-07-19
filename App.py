@@ -5,11 +5,23 @@ import pytz
 import matplotlib.pyplot as plt
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 import time
+import numpy as np
+from matplotlib.lines import Line2D
 
 st.set_page_config(
     page_title="A-Hatid!",
     page_icon="https://cdn-icons-png.freepik.com/512/6984/6984901.png"
 )
+
+# Display welcome page for 2 seconds
+if 'welcome_shown' not in st.session_state:
+    st.session_state.welcome_shown = False
+
+if not st.session_state.welcome_shown:
+    st.markdown("<h1 style='text-align: center;'>Welcome to A-Hatid!</h1>", unsafe_allow_html=True)
+    time.sleep(2)
+    st.session_state.welcome_shown = True
+    st.experimental_rerun()
 
 @st.cache_data(ttl=300)
 def load_data(sheet_id):
@@ -31,8 +43,24 @@ def plot_map(title, coords, place_coords, place_labels):
         ab = AnnotationBbox(im, (x, y), xycoords='data', frameon=False)
         ax.add_artist(ab)
         ax.text(x + 0.1, y + 0.25, f' {label}', fontsize=6, verticalalignment='center_baseline', zorder=10)
-    
-    ax.plot(*zip(*coords), color='lightgray', label='Route')  
+
+    # Custom line style with "---->"
+    line_style = [0, (5, 5)]
+    for i in range(len(coords) - 1):
+        x_start, y_start = coords[i]
+        x_end, y_end = coords[i + 1]
+        ax.plot([x_start, x_end], [y_start, y_end], linestyle=(0, (5, 10)), color='black')
+
+    # Adding ">" marks to indicate direction
+    for i in range(len(coords) - 1):
+        x_start, y_start = coords[i]
+        x_end, y_end = coords[i + 1]
+        midpoint = ((x_start + x_end) / 2, (y_start + y_end) / 2)
+        dx = x_end - x_start
+        dy = y_end - y_start
+        rotation = np.degrees(np.arctan2(dy, dx))
+        ax.text(midpoint[0], midpoint[1], ">", fontsize=8, rotation=rotation, ha='center', va='center', color='black')
+
     ax.set_title(title, fontsize=10, pad=20)
     ax.axis('off')
     return fig, ax
