@@ -10,6 +10,15 @@ st.set_page_config(
     page_icon="https://cdn-icons-png.freepik.com/512/6984/6984901.png"
 )
 
+if 'welcome_shown' not in st.session_state:
+    st.session_state.welcome_shown = False
+
+if not st.session_state.welcome_shown:
+    st.markdown("<h1 style='text-align: center;'>Welcome to A-Hatid!</h1>", unsafe_allow_html=True)
+    time.sleep(2)
+    st.session_state.welcome_shown = True
+    st.experimental_rerun()
+
 @st.cache_data(ttl=300)
 def load_data(sheet_id):
     url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv"
