@@ -13,13 +13,12 @@ st.set_page_config(
     page_icon="https://cdn-icons-png.freepik.com/512/6984/6984901.png"
 )
 
-# Display welcome page for 2 seconds
 if 'welcome_shown' not in st.session_state:
     st.session_state.welcome_shown = False
 
 if not st.session_state.welcome_shown:
     st.markdown("<h1 style='text-align: center;'>Welcome to A-Hatid!</h1>", unsafe_allow_html=True)
-    time.sleep(2)
+    time.sleep(3)
     st.session_state.welcome_shown = True
     st.experimental_rerun()
 
@@ -49,7 +48,7 @@ def plot_map(title, coords, place_coords, place_labels):
     for i in range(len(coords) - 1):
         x_start, y_start = coords[i]
         x_end, y_end = coords[i + 1]
-        ax.plot([x_start, x_end], [y_start, y_end], linestyle=(0, (1, 1)), color='lightgrey')
+        ax.plot([x_start, x_end], [y_start, y_end], linestyle=(0, (1, 1)), color='darkgrey')
 
     # Adding ">" marks to indicate direction
     for i in range(len(coords) - 1):
@@ -59,7 +58,7 @@ def plot_map(title, coords, place_coords, place_labels):
         dx = x_end - x_start
         dy = y_end - y_start
         rotation = np.degrees(np.arctan2(dy, dx))
-        ax.text(midpoint[0], midpoint[1], ">", fontsize=8, rotation=rotation, ha='center', va='center', color='blue')
+        ax.text(midpoint[0], midpoint[1], ">", fontsize=8, rotation=rotation, ha='center', va='center', color='darkgrey')
 
     ax.set_title(title, fontsize=10, pad=20)
     ax.axis('off')
