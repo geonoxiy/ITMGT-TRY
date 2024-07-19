@@ -162,5 +162,4 @@ if line == "LINE B":
 local_tz = pytz.timezone('Asia/Manila')
 local_time = datetime.datetime.now(local_tz)
 
-st.write("Last updated:", local_time.strftime("%Y-%m-%d %H:%M:%S"))
-st.write("Occasionally refresh the website to get updates!")
+st.write("Last updated:", local_time.strftime("%Y-%m-%d %H:%M:%S"), "  -/  Occasionally refresh the website to get updates!")
