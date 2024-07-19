@@ -38,14 +38,14 @@ def plot_map(title, coords, place_coords, place_labels):
     icon_path = 'pin.png'
     icon = plt.imread(icon_path)
 
-    # for (x, y), label in zip(place_coords, place_labels):
-    #     im = OffsetImage(icon, zoom=0.005)
-    #     ab = AnnotationBbox(im, (x, y), xycoords='data', frameon=False)
-    #     ax.add_artist(ab)
-    #     ax.text(x + 0.1, y + 0.25, f' {label}', fontsize=6, verticalalignment='center_baseline', zorder=10)
+    for (x, y), label in zip(place_coords, place_labels):
+        im = OffsetImage(icon, zoom=0.005)
+        ab = AnnotationBbox(im, (x, y), xycoords='data', frameon=False)
+        ax.add_artist(ab)
+        ax.text(x + 0.1, y + 0.25, f' {label}', fontsize=6, verticalalignment='center_baseline', zorder=10)
 
     # Custom line style with "---->"
-    line_style = [0, (5, 5)]
+    line_style = [0, (1, 1)]
     for i in range(len(coords) - 1):
         x_start, y_start = coords[i]
         x_end, y_end = coords[i + 1]
