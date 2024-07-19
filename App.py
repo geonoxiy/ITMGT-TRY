@@ -56,7 +56,7 @@ def plot_map(title, coords, place_coords, place_labels):
         dx = x_end - x_start
         dy = y_end - y_start
         rotation = np.degrees(np.arctan2(dy, dx))
-        ax.text(midpoint[0], midpoint[1], "^", fontsize=11, rotation=rotation, ha='center', va='center', color='darkgrey')
+        ax.text(midpoint[0], midpoint[1], ">", fontsize=10, rotation=rotation, ha='center', va='center', color='darkgrey')
 
     ax.set_title(title, fontsize=10, pad=20)
     ax.axis('off')
