@@ -144,7 +144,7 @@ if line == "LINE B":
 
         highlight(ax, B1, M1, "red")
         highlight(ax, B2, M2, "blue")
-        highlight(ax, B3, M3, "orange")
+        highlight(ax, B3, M3, "green")
 
         ax.legend(fontsize=6, bbox_to_anchor=(1.05, 1), loc='upper left')
         st.pyplot(fig)
