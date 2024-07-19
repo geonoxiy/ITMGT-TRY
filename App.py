@@ -32,7 +32,10 @@ def plot_map(title, coords, place_coords, place_labels):
         ax.add_artist(ab)
         ax.text(x + 0.1, y + 0.25, f' {label}', fontsize=6, verticalalignment='center_baseline', zorder=10)
     
-    ax.plot(*zip(*coords), color='lightgray', label='Route')
+    ax.plot(*zip(*coords), color='lightgray', label='Route')  
+    ax.set_title(title, fontsize=10, pad=20)
+    ax.axis('off')
+    return fig, ax
 
 def highlight_route(ax, start, end, line_coords, color):
     start_index = line_coords["coords"].index(line_coords["place_coords"][line_coords["place_labels"].index(start)])
