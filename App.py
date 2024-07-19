@@ -43,14 +43,12 @@ def plot_map(title, coords, place_coords, place_labels):
         ax.add_artist(ab)
         ax.text(x + 0.1, y + 0.25, f' {label}', fontsize=6, verticalalignment='center_baseline', zorder=10)
 
-    # Custom line style with "---->"
-    line_style = [0, (1, 1)]
+    line_style = 'solid'
     for i in range(len(coords) - 1):
         x_start, y_start = coords[i]
         x_end, y_end = coords[i + 1]
-        ax.plot([x_start, x_end], [y_start, y_end], linestyle=(0, (1, 1)), color='black')
+        ax.plot([x_start, x_end], [y_start, y_end], linestyle='solid', color='blackblue')
 
-    # Adding ">" marks to indicate direction
     for i in range(len(coords) - 1):
         x_start, y_start = coords[i]
         x_end, y_end = coords[i + 1]
@@ -58,7 +56,7 @@ def plot_map(title, coords, place_coords, place_labels):
         dx = x_end - x_start
         dy = y_end - y_start
         rotation = np.degrees(np.arctan2(dy, dx))
-        ax.text(midpoint[0], midpoint[1], ">", fontsize=8, rotation=rotation, ha='center', va='center', color='black')
+        ax.text(midpoint[0], midpoint[1], ">", fontsize=10, rotation=rotation, ha='center', va='center', color='blackblue')
 
     ax.set_title(title, fontsize=10, pad=20)
     ax.axis('off')
